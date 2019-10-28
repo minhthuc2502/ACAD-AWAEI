@@ -21,7 +21,7 @@
         <div id="mainBody">
             <nav id="nav-bar">                  
                 <ul class="main-nav">
-                    <li><a href="vueEnsemble.html">Vue d'ensemble</a></li>
+                    <li><a href="vueEnsemble.php">Vue d'ensemble</a></li>
                     <li><a href="about.php">Control</a></li>
                     <li><a href="login.php">Se Connecter</a></li>
                 </ul> 
@@ -34,7 +34,7 @@
         <!--Introduction -->
         <section class="section-main" id='features'>
             <div class="row">
-                <h2>THE CASTLE</h2>
+                <h2 id="titliIndex">THE CASTLE</h2>
                 <p class="introduction">
                 Nous vous donnons plus de moyens d'améliorer votre expérience Internet avec The Castle.
                 En tant que client du The Castle, vous pouvez désormais personnaliser et surveiller votre maison à partir de notre site web.
@@ -47,31 +47,55 @@
                 <li>
                     <figure class="room-photo">
                         <img src="img/room1.jpg" alt="red room">
+                        <div class="txt">
+                            <h3>Amazing Caption</h3>
+                            <p>Whatever It Is- Always Awesome</p>
+                        </div>
                     </figure>
                 </li>
                 <li>
                     <figure class="room-photo">
                         <img src="img/room2.jpg" alt="messed room">
+                        <div class="txt">
+                            <h3>Amazing Caption</h3>
+                            <p>Whatever It Is- Always Awesome</p>
+                        </div>
                     </figure>
                 </li>
                 <li>
                     <figure class="room-photo">
                         <img src="img/room3.jpg" alt="nature room">
+                        <div class="txt">
+                            <h3>Amazing Caption</h3>
+                            <p>Whatever It Is- Always Awesome</p>
+                        </div>
                     </figure>
                 </li>
                 <li>
                     <figure class="room-photo">
                         <img src="img/room4.png" alt="green room with a girl">
+                        <div class="txt">
+                            <h3>Amazing Caption</h3>
+                            <p>Whatever It Is- Always Awesome</p>
+                        </div>
                     </figure>
                 </li>
                 <li>
                     <figure class="room-photo">
                         <img src="img/room5.jpg" alt="modern room on the sky">
+                        <div class="txt">
+                            <h3>Amazing Caption</h3>
+                            <p>Whatever It Is- Always Awesome</p>
+                        </div>
                     </figure>
                 </li>
                 <li>
                     <figure class="room-photo">
                         <img src="img/room6.jpg" alt="classic room">
+                        <div class="txt">
+                            <h3>Amazing Caption</h3>
+                            <p>Whatever It Is- Always Awesome</p>
+                        </div>
                     </figure>
                 </li>
             </ul>
