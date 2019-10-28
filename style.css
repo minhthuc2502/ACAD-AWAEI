@@ -320,3 +320,31 @@ footer span {
     padding: 80px;
     margin-top: -30px;
 }
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 48%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+    margin-top: -20px;
+  }
+
+.column img{
+    height: 290px;
+    width: 80%;
+    padding: 10px;
+    margin-left: -40px;
+}
+.column h3{
+    color: #ffffff;
+}
+.column p{
+    color: #ffffff;
+}
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: inline-table;
+    clear: both;
+}

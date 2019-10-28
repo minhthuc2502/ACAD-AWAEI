@@ -24,7 +24,25 @@
                 </ul> 
             </nav>
             <h2>Comment pourrions-nous controler notre maison?</h2>
+            <div class="row">
+                <div class="column">
+                        <img src="img/control1.jpg" alt="interface control">
+                        <img src="img/control2.jpg" alt="automate">
+                </div>
+                <div class="column" style="background-color:transparent;">
+                    <h3>Column 2</h3>
+                    <p>Some Text</p>
+                </div>
+            </div>    
         </div>
+        <!-- Footer -->
+        <footer id="footpage">
+            <ul>
+                <li><a href="mailto:minh.pham@insa-cvl.fr">Email</a></li>
+                <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>                  
+            </ul>
+            <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
+        </footer>
     </body>
         
 </html>
