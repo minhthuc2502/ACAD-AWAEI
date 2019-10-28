@@ -14,7 +14,7 @@
         <!-- Header -->
         <div>
             <header id="header" class="alt">
-                <div class="logo"><a href="index.php">THE CASTTLE <span>1997</span></a><div>
+                <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a><div>
             </header>
         </div>
         <div id="mainBody">
@@ -26,16 +26,17 @@
                 </ul> 
             </nav>
             <div class="welcome-text">
-                <h1>Nous sommes créatifs</h1>
+                <h1>le contrôle partout et pour tous</h1>
                 <a href="#footpage">Contactez-nous</a>
             </div>   
         </div>
         <section class="section-main" id='features'>
             <div class="row">
-                <h2>THE CASTTLE&mdash;SOLOGAN(MODIFY)</h2>
+                <h2>THE CASTLE</h2>
                 <p class="introduction">
-                    Introduction about the CASTTLE  Ce serveur permet de contrôler et superviser un automate à travers le protocol MODBUS par le cable Ethernet.
-                    Il va communiquer avec la base de données MySQL pour stocker les données de l'automate (tam thoi)
+                Nous vous donnons plus de moyens d'améliorer votre expérience Internet avec The Castle.
+                En tant que client du The Castle, vous pouvez désormais personnaliser et surveiller votre maison à partir de notre site web.
+                Cette application affiche une vue complète de vos salles et vous permet de les gérer à partir d’une interface simple et intuitive.
                 </p>
             </div>
         </section>    
@@ -44,7 +45,7 @@
                     <li><a href="mailto:minh.pham@insa-cvl.fr">Email</a></li>
                     <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>                  
                 </ul>
-                <span> Copyright 2019 by Minh Thuc PHAM & Minh Duc LA</span>
+                <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
             </footer>
         </body>
     </html>
