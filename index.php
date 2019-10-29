@@ -7,7 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PROJET WEB</title>
         <link rel="icon" href="https://i.imgur.com/RjQxEiC.png">
+        <link rel="stylesheet" href="nomalize.css" />
         <link rel="stylesheet" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Glegoo&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -48,8 +50,8 @@
                     <figure class="room-photo">
                         <img src="img/room1.jpg" alt="red room">
                         <div class="txt">
-                            <h3>Amazing Caption</h3>
-                            <p>Whatever It Is- Always Awesome</p>
+                            <h3 class="txt-title">Temps Réel</h3>
+                            <p><i>surveiller la température de la salle choisi en temps réel</i></p>
                         </div>
                     </figure>
                 </li>
@@ -57,8 +59,8 @@
                     <figure class="room-photo">
                         <img src="img/room2.jpg" alt="messed room">
                         <div class="txt">
-                            <h3>Amazing Caption</h3>
-                            <p>Whatever It Is- Always Awesome</p>
+                            <h3 class="txt-title">Contrôle</h3>
+                            <p><i>contrôler vos appareil électronique : climat, ventilateurs,...</i></p>
                         </div>
                     </figure>
                 </li>
@@ -66,8 +68,8 @@
                     <figure class="room-photo">
                         <img src="img/room3.jpg" alt="nature room">
                         <div class="txt">
-                            <h3>Amazing Caption</h3>
-                            <p>Whatever It Is- Always Awesome</p>
+                            <h3 class="txt-title">Notification</h3>
+                            <p><i>envoyer l'état de la salle par SMS, email périodiquement</i></p>
                         </div>
                     </figure>
                 </li>
@@ -75,8 +77,8 @@
                     <figure class="room-photo">
                         <img src="img/room4.png" alt="green room with a girl">
                         <div class="txt">
-                            <h3>Amazing Caption</h3>
-                            <p>Whatever It Is- Always Awesome</p>
+                            <h3 class="txt-title">Rapport</h3>
+                            <p><i>visualiser le changement de température de la salle dans une journée</i></p>
                         </div>
                     </figure>
                 </li>
@@ -84,8 +86,8 @@
                     <figure class="room-photo">
                         <img src="img/room5.jpg" alt="modern room on the sky">
                         <div class="txt">
-                            <h3>Amazing Caption</h3>
-                            <p>Whatever It Is- Always Awesome</p>
+                            <h3 class="txt-title">Alerte</h3>
+                            <p><i>envoyer la notification quand la température est trop haut / bas</i></p>
                         </div>
                     </figure>
                 </li>
@@ -93,8 +95,8 @@
                     <figure class="room-photo">
                         <img src="img/room6.jpg" alt="classic room">
                         <div class="txt">
-                            <h3>Amazing Caption</h3>
-                            <p>Whatever It Is- Always Awesome</p>
+                            <h3 class="txt-title">Sécurité</h3>
+                            <p><i>vos données ne sont accessibles que par votre compte</i></p>
                         </div>
                     </figure>
                 </li>
