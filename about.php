@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" href="https://i.imgur.com/RjQxEiC.png">
+        <link rel="icon" href="img/icon.png">
         <link rel="stylesheet" href="mainstyle.css">
-        <title>About</title>
+        <title>The Castle - About</title>
     </head>
     <body>
     <?php

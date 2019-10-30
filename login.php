@@ -5,9 +5,9 @@ session_start();
 ?>
 <html>
     <head>
-        <link rel="icon" href="https://i.imgur.com/RjQxEiC.png">
+        <link rel="icon" href="img/icon.png">
         <link rel="stylesheet" href="mainstyle.css">
-        <title>Se Connecter</title>
+        <title>The Castle - Se Connecter</title>
         <meta charset="utf-8">
     </head>
 
