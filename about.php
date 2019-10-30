@@ -9,7 +9,11 @@
     <?php
     function read_bits($ip,$port,$debut,$nbits)
     {
-        require_once dirname(__FILE__) . '\phpmodbus-master\Phpmodbus\ModbusMaster.php';
+        //TODO: change line below to adapt your OS system
+        /* For Ubuntu */
+        require_once dirname(__FILE__) . '/phpmodbus-master/Phpmodbus/ModbusMaster.php';
+        /* For Window */
+        // require_once dirname(__FILE__) . '\phpmodbus-master\Phpmodbus\ModbusMaster.php';
         $modbus = new ModbusMaster($ip,"TCP",$port);
         $recData = $modbus->readCoils(1,$debut, $nbits);
         return $recData;
