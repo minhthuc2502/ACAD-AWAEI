@@ -5,8 +5,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PROJET WEB</title>
-        <link rel="icon" href="https://i.imgur.com/RjQxEiC.png">
+        <title>The Castle 1997</title>
+        <link rel="icon" href="img/icon.png">
         <link rel="stylesheet" href="nomalize.css" />
         <link rel="stylesheet" href="style.css" />
         <link href="https://fonts.googleapis.com/css?family=Glegoo&display=swap" rel="stylesheet">
