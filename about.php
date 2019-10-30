@@ -18,9 +18,22 @@
         $recData = $modbus->readCoils(1,$debut, $nbits);
         return $recData;
     }
+
+    function send_email()
+    {
+        $to_email = 'minh.la@insa-cvl.fr';
+        // $to_email = 'duc.bui@insa-cvl.fr';
+        $subject = 'Testing PHP Mail1';
+        $message = 'This mail is sent using the PHP mail function';
+        mail($to_email,$subject,$message);
+    }
+
     if (isset($_POST["test"])){
         $data = read_bits("192.168.001.100",502,45,100);
         echo PhpType::bytes2string($data);
+    }
+    if (isset($_POST["email"])) {
+        send_email();
     }
     ?>
     <form method="POST" action="about.php">
@@ -35,6 +48,7 @@
         <img class="portrait" src="img/logo.jpg">
         <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
         <input type="submit" name="test" value="test">
+        <input type="submit" name="email" value="email">
     </div>  
     </body>
 
