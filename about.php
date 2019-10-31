@@ -11,7 +11,8 @@
     {
         //TODO: change line below to adapt your OS system
         /* For Ubuntu */
-        require_once dirname(__FILE__) . '/phpmodbus-master/Phpmodbus/ModbusMaster.php';
+        // require_once dirname(__FILE__) . '/phpmodbus-master/Phpmodbus/ModbusMaster.php';
+        require_once './phpmodbus-master/Phpmodbus/ModbusMaster.php';
         /* For Window */
         // require_once dirname(__FILE__) . '\phpmodbus-master\Phpmodbus\ModbusMaster.php';
 
@@ -22,7 +23,7 @@
 
     function send_email()
     {
-        require_once dirname(__FILE__) . '/utils/email.php';
+        require_once './utils/email.php';
         // $to_email = 'minh.la@insa-cvl.fr';
         $to_email = 'laminhduc0704@gmail.com';
         // $to_email = 'duc.bui@insa-cvl.fr';

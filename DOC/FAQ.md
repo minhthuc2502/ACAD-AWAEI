@@ -107,3 +107,7 @@ Now save and exit from gedit. Now it's time to restart your *`apache`*
 Now create one php file with mail function from http://in2.php.net/manual/en/function.mail.php.
 
 Do test and enjoy !!
+
+## Send alert email
+
+<https://github.com/leemunroe/responsive-html-email-template>
