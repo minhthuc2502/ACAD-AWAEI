@@ -1,4 +1,6 @@
 node_modules/
+ignore-files/
+
 
 ##########################################################
 #File for xampp projects

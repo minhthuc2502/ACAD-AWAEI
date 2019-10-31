@@ -12,6 +12,22 @@ session_start();
     </head>
 
     <body>
+
+        <div>   
+            <header id="header" class="alt">
+                <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a><div>
+            </header>
+        </div>
+        <div class="main-content">
+            <header>
+                
+                <a href = "index.php">Home</a>
+                <a href = "about.php">About</a>
+                <a href = "login.php">Se Connecter</a>
+            </header>
+            <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
+        </div> 
+
     <?php
         require_once("connection.php");
         // si button submit est appuye

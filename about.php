@@ -14,6 +14,7 @@
         require_once dirname(__FILE__) . '/phpmodbus-master/Phpmodbus/ModbusMaster.php';
         /* For Window */
         // require_once dirname(__FILE__) . '\phpmodbus-master\Phpmodbus\ModbusMaster.php';
+
         $modbus = new ModbusMaster($ip,"TCP",$port);
         $recData = $modbus->readCoils(1,$debut, $nbits);
         return $recData;
@@ -21,11 +22,15 @@
 
     function send_email()
     {
-        $to_email = 'minh.la@insa-cvl.fr';
+        require_once dirname(__FILE__) . '/utils/email.php';
+        // $to_email = 'minh.la@insa-cvl.fr';
+        $to_email = 'laminhduc0704@gmail.com';
         // $to_email = 'duc.bui@insa-cvl.fr';
-        $subject = 'Testing PHP Mail1';
-        $message = 'This mail is sent using the PHP mail function';
-        mail($to_email,$subject,$message);
+        // To send HTML mail, the Content-type header must be set
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+        //mail($to_email,$subject,$message, implode("\r\n", $headers));
+        send_alert_email($to_email);
     }
 
     if (isset($_POST["test"])){
@@ -37,19 +42,25 @@
     }
     ?>
     <form method="POST" action="about.php">
-    <div class="main-content">
-        <header>
-            <h1>Projet Web Static</h1>  
-            
-            <a href = "index.php">Home</a>
-            <a href = "about.php">About</a>
-            <a href = "help.php">Help</a>
-        </header>
-        <img class="portrait" src="img/logo.jpg">
-        <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
-        <input type="submit" name="test" value="test">
-        <input type="submit" name="email" value="email">
-    </div>  
+
+    <!-- Header -->
+        <div>
+            <header id="header" class="alt">
+                <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a><div>
+            </header>
+        </div>
+        <div class="main-content">
+            <header>
+                
+                <a href = "index.php">Home</a>
+                <a href = "about.php">About</a>
+                <a href = "login.php">Se Connecter</a>
+            </header>
+            <img class="portrait" src="img/logo.jpg">
+            <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
+            <input type="submit" name="test" value="test">
+            <input type="submit" name="email" value="email">
+        </div>  
     </body>
 
 </html>
