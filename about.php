@@ -9,12 +9,7 @@
     <?php
     function read_bits($ip,$port,$debut,$nbits)
     {
-        //TODO: change line below to adapt your OS system
-        /* For Ubuntu */
-        // require_once dirname(__FILE__) . '/phpmodbus-master/Phpmodbus/ModbusMaster.php';
         require_once './phpmodbus-master/Phpmodbus/ModbusMaster.php';
-        /* For Window */
-        // require_once dirname(__FILE__) . '\phpmodbus-master\Phpmodbus\ModbusMaster.php';
 
         $modbus = new ModbusMaster($ip,"TCP",$port);
         $recData = $modbus->readCoils(1,$debut, $nbits);
@@ -27,9 +22,7 @@
         // $to_email = 'minh.la@insa-cvl.fr';
         $to_email = 'laminhduc0704@gmail.com';
         // $to_email = 'duc.bui@insa-cvl.fr';
-        // To send HTML mail, the Content-type header must be set
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+        
         //mail($to_email,$subject,$message, implode("\r\n", $headers));
         send_alert_email($to_email);
     }
