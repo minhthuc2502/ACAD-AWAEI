@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="icon" href="img/icon.png">
-        <link rel="stylesheet" href="mainstyle.css">
+        <link rel="stylesheet" href="style.css">
         <title>The Castle - About</title>
     </head>
     <body>
@@ -32,8 +32,13 @@
         $data = read_bits("192.168.001.100",502,45,100);
         echo PhpType::bytes2string($data);
     }
-    if (isset($_POST["email"])) {
+    if (isset($_POST["alerte_email"])) {
         send_email();
+    }
+
+    if (isset($_POST["noti_email"])) {
+        require_once './utils/email.php';
+        send_noti_email('laminhduc0704@gmail.com');
     }
     ?>
     <form method="POST" action="about.php">
@@ -54,7 +59,8 @@
             <img class="portrait" src="img/logo.jpg">
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
             <input type="submit" name="test" value="test">
-            <input type="submit" name="email" value="email">
+            <input type="submit" name="alerte email" value="alerte_email">
+            <input type="submit" name="noti email" value="noti_email">
         </div>  
     </body>
 
