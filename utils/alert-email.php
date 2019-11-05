@@ -351,7 +351,7 @@
                       <td>
                         <p>Bonjour %REPLACE_FIRSTNAME%,</p>
                         <p>Ceci est une alerte e-mail de <b>The Castle</b>. Il y a un problème de température dans votre maison.
-                            La température de la <span style="color:blue">%REPLACE_ROOM%</span> est <span style="color:red">%REPLACE_TEMP%°C</span>, elle a dépassé le niveau autorisé.
+                            La température de la <span style="color:blue;font-weight:bold">%REPLACE_ROOM%</span> est <span style="color:red;font-weight:bold">%REPLACE_TEMP%°C</span>, elle a dépassé le niveau autorisé.
                             Cliquez sur le bouton ci-dessous pour déterminer le problème et le résoudre à partir de notre site Web.</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
@@ -360,7 +360,7 @@
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="http://localhost/test/index.php" target="_blank">Problème</a> </td>
+                                      <td> <a href="http://localhost:8088/test/index.php" target="_blank">Problème</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -369,7 +369,7 @@
                           </tbody>
                         </table>
                         <p>En tant que client de <b>The Castle</b>, vous recevez cette notification chaque fois que la température de votre 
-                            maison est trop élevée ou trop basse. Cliquez sur <a href="http://localhost/test/index.php" target="_blank">se désabonner</a>
+                            maison est trop élevée ou trop basse. Cliquez sur <a href="http://localhost:8088/test/index.php" target="_blank">se désabonner</a>
                             pour désactiver la notification.</p>
                         <p>Bonne journée</p>
                       </td>
@@ -388,12 +388,12 @@
                 <tr>
                   <td class="content-block">
                     <span class="apple-link">The Castle, 2 Jean Laigret, Blois 41000 France</span>
-                    <br> Don't like these emails? <a href="http://localhost/test/index.php" target="_blank">Unsubscribe</a>.
+                    <br> Don't like these emails? <a href="http://localhost:8088/test/index.php" target="_blank">Unsubscribe</a>.
                   </td>
                 </tr>
                 <tr>
                   <td class="content-block powered-by">
-                    Powered by <a href="http://localhost/test/index.php" target="_blank"><b>The Castle</b></a>.
+                    Powered by <a href="http://localhost:8088/test/index.php" target="_blank"><b>The Castle</b></a>.
                   </td>
                 </tr>
               </table>
