@@ -351,12 +351,12 @@
                       <td>
                         <p>Bonjour %REPLACE_FIRSTNAME%,</p>
                         <p>Ceci est une alerte e-mail de <b>The Castle</b>. Il y a un problème de température dans votre maison.
-                            La température de la %REPLACE_ROOM% est %REPLACE_TEMP%°C, elle a dépassé le niveau autorisé.
+                            La température de la <span style="color:blue">%REPLACE_ROOM%</span> est <span style="color:red">%REPLACE_TEMP%°C</span>, elle a dépassé le niveau autorisé.
                             Cliquez sur le bouton ci-dessous pour déterminer le problème et le résoudre à partir de notre site Web.</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
-                              <td align="left">
+                              <td text_align="left">
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>

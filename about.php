@@ -22,6 +22,7 @@
         // $to_email = 'minh.la@insa-cvl.fr';
         $to_email = 'laminhduc0704@gmail.com';
         // $to_email = 'duc.bui@insa-cvl.fr';
+        // $to_email = 'minhthuc2502@gmail.com';
         
         //mail($to_email,$subject,$message, implode("\r\n", $headers));
         send_alert_email($to_email);
