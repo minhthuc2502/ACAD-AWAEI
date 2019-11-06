@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="icon" href="img/icon.png">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="mainstyle.css">
         <title>The Castle - About</title>
     </head>
     <body>
