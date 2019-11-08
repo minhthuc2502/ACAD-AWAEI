@@ -85,15 +85,17 @@ function send_noti_email($to_email) {
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'The Castle - Notification';
 
-    $mail->Body    = file_get_contents(dirname(__FILE__) . '/noti-email.html');
+    $template     = file_get_contents(dirname(__FILE__) . '/noti-email.html');
+    $search       = array('%TEMP_SALON%', '%TEMP_CHAMBRE1%', '%TEMP_CHAMBRE2%', '%TEMP_CUISINE%', '%TEMP_BAIN%', '%TEMP_MANGER%');
+    $replace      = get_data_for_noti_email();
+    $mail->Body   = str_replace($search,$replace,$template);
+
     $mail->AddEmbeddedImage(dirname(__FILE__) . '/images/work-1.jpg', 'work1');
     $mail->AddEmbeddedImage(dirname(__FILE__) . '/images/work-2.jpg', 'work2');
     $mail->AddEmbeddedImage(dirname(__FILE__) . '/images/work-3.jpg', 'work3');
-    $mail->AddEmbeddedImage(dirname(__FILE__) . '/images/work-4.jpg', 'work4');
     $mail->AddEmbeddedImage(dirname(__FILE__) . '/images/work-5.jpg', 'work5');
     $mail->AddEmbeddedImage(dirname(__FILE__) . '/images/work-6.jpg', 'work6');
     $mail->AddEmbeddedImage(dirname(__FILE__) . '/images/work-7.jpg', 'work7');
-    $mail->AddEmbeddedImage(dirname(__FILE__) . '/images/work-8.jpg', 'work8');
 
     $mail->addAddress($to_email);     // Add a recipient
 
@@ -107,5 +109,9 @@ function send_noti_email($to_email) {
 
 function get_data_for_alerte_email() {
   return array('LA', 'salle de bain', '37');
+}
+
+function get_data_for_noti_email() {
+  return array('07', '04', '97', '09', '10', '97');
 }
 ?>
