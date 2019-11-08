@@ -41,7 +41,7 @@
         send_noti_email('laminhduc0704@gmail.com');
     }
     ?>
-    <form method="POST" action="about.php">
+    <form method="POST" action="control.php">
 
     <!-- Header -->
         <div>
