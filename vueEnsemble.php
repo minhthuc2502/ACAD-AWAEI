@@ -21,7 +21,7 @@
             <nav id="nav-bar">                  
                 <ul class="main-nav">
                     <li><a href="vueEnsemble.php">Vue d'ensemble</a></li>
-                    <li><a href="about.php">Control</a></li>
+                    <li><a href="control.php">Control</a></li>
                     <li><a href="login.php">Se Connecter</a></li>
                 </ul> 
             </nav>
@@ -68,7 +68,7 @@
         <!-- Footer -->
         <footer id="footpage">
             <ul>
-                <li><a href="mailto:minh.pham@insa-cvl.fr">Email</a></li>
+                <li><a href="mailto:thecastle1997.blois@gmail.com" target="_blank">Email</a></li>
                 <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>                  
             </ul>
             <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>

@@ -21,8 +21,8 @@ session_start();
         <div class="main-content">
             <header>
                 
-                <a href = "index.php">Home</a>
-                <a href = "about.php">About</a>
+                <a href = "vueEnsemble.php">Vue d'ensemble</a>
+                <a href = "control.php">Control</a>
                 <a href = "login.php">Se Connecter</a>
             </header>
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
@@ -81,6 +81,14 @@ session_start();
                 </table>
             </fieldset>
         </div>  
+        <!-- Footer -->
+        <footer id="footpage">
+            <ul>
+                <li><a href="mailto:thecastle1997.blois@gmail.com" target="_blank">Email</a></li>
+                <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>                  
+            </ul>
+            <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
+        </footer>
     </body>
 </html>
 

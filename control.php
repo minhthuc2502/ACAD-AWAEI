@@ -49,19 +49,27 @@
                 <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a><div>
             </header>
         </div>
-        <div class="main-content">
-            <header>
+        <div class="mainBody">
+            <nav id="nav-bar">     
                 
-                <a href = "index.php">Home</a>
-                <a href = "about.php">About</a>
+                <a href = "vueEnsemble.php">Vue d'ensemble</a>
+                <a href = "control.php">Control</a>
                 <a href = "login.php">Se Connecter</a>
-            </header>
+            </nav>
             <img class="portrait" src="img/logo.jpg">
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
             <input type="submit" name="test" value="test">
             <input type="submit" name="alerte email" value="alerte_email">
             <input type="submit" name="noti email" value="noti_email">
         </div>  
+        <!-- Footer -->
+        <footer id="footpage">
+            <ul>
+                <li><a href="mailto:thecastle1997.blois@gmail.com" target="_blank">Email</a></li>
+                <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>                  
+            </ul>
+            <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
+        </footer>
     </body>
 
 </html>
