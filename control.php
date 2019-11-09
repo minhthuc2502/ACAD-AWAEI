@@ -7,38 +7,35 @@
     </head>
     <body>
     <?php
-    function read_bits($ip,$port,$debut,$nbits)
-    {
-        require_once './phpmodbus-master/Phpmodbus/ModbusMaster.php';
-
-        $modbus = new ModbusMaster($ip,"TCP",$port);
-        $recData = $modbus->readCoils(1,$debut, $nbits);
-        return $recData;
+/********************/
+/*      MODBUS      */
+/********************/
+    if (isset($_POST["read_bits"])){
+        require_once dirname(__FILE__) . '/utils/modbus.php';
+        $data = read_bits("192.168.001.100",502,25,100);
+        echo PhpType::bytes2string($data);
     }
 
-    function send_email()
-    {
-        require_once './utils/email.php';
-        // $to_email = 'minh.la@insa-cvl.fr';
+    if (isset($_POST["write_bits"])){
+        require_once dirname(__FILE__) . '/utils/modbus.php';
+        $data = write_bits("192.168.001.100",502,59,TRUE);          // turn on fan
+        echo PhpType::bytes2string($data);
+    }
+
+
+/********************/
+/*      EMAIL       */
+/********************/
+    if (isset($_POST["alerte_email"])) {
+        require_once dirname(__FILE__) . '/utils/email.php';
         $to_email = 'laminhduc0704@gmail.com';
-        // $to_email = 'duc.bui@insa-cvl.fr';
-        // $to_email = 'minhthuc2502@gmail.com';
-        
-        //mail($to_email,$subject,$message, implode("\r\n", $headers));
         send_alert_email($to_email);
     }
 
-    if (isset($_POST["test"])){
-        $data = read_bits("192.168.001.100",502,45,100);
-        echo PhpType::bytes2string($data);
-    }
-    if (isset($_POST["alerte_email"])) {
-        send_email();
-    }
-
     if (isset($_POST["noti_email"])) {
-        require_once './utils/email.php';
-        send_noti_email('laminhduc0704@gmail.com');
+        require_once dirname(__FILE__) . '/utils/email.php';
+        $to_email = 'laminhduc0704@gmail.com';
+        send_noti_email($to_email);
     }
     ?>
     <form method="POST" action="control.php">
@@ -58,7 +55,8 @@
             </nav>
             <img class="portrait" src="img/logo.jpg">
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
-            <input type="submit" name="test" value="test">
+            <input type="submit" name="read bits" value="read_bits">
+            <input type="submit" name="write bits" value="write_bits">
             <input type="submit" name="alerte email" value="alerte_email">
             <input type="submit" name="noti email" value="noti_email">
         </div>  
