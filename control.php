@@ -4,22 +4,51 @@
         <link rel="icon" href="img/icon.png">
         <link rel="stylesheet" href="mainstyle.css">
         <title>The Castle - About</title>
+        <script src="./node_modules/plotly.js-dist/plotly.js"></script>
     </head>
     <body>
     <?php
 /********************/
 /*      MODBUS      */
 /********************/
-    if (isset($_POST["read_bits"])){
+
+/*  Read function   */
+    if (isset($_POST["read_coils"])){
         require_once dirname(__FILE__) . '/utils/modbus.php';
-        $data = read_bits("192.168.001.100",502,25,100);
+        echo "in read colis function";
+        $data = read_coils("192.168.001.100",502,25,100);
         echo PhpType::bytes2string($data);
     }
 
-    if (isset($_POST["write_bits"])){
+    if (isset($_POST["read_holding_registers"])){
         require_once dirname(__FILE__) . '/utils/modbus.php';
-        $data = write_bits("192.168.001.100",502,59,TRUE);          // turn on fan
+        echo "in read holding registers function";
+        $data = read_holding_registers("192.168.001.100",502,25,100);
         echo PhpType::bytes2string($data);
+    }
+/*  Write to coils  */
+    if (isset($_POST["write_single_coils"])){
+        require_once dirname(__FILE__) . '/utils/modbus.php';
+        echo "in write single colis function";
+        write_single_coils("192.168.001.100",502,59,TRUE);          // turn on fan
+    }
+
+    if (isset($_POST["write_multiple_coils"])){
+        require_once dirname(__FILE__) . '/utils/modbus.php';
+        echo "in write multiple colis function";
+        write_multiple_coils("192.168.001.100",502,59,TRUE);          // turn on fan
+    }
+/*  Write to register   */
+    if (isset($_POST["write_single_register"])){
+        require_once dirname(__FILE__) . '/utils/modbus.php';
+        echo "in write single register function";
+        write_single_register("192.168.001.100",502,59,TRUE);          // turn on fan
+    }
+
+    if (isset($_POST["write_multiple_registers"])){
+        require_once dirname(__FILE__) . '/utils/modbus.php';
+        echo "in write multiple register function";
+        write_multiple_registers("192.168.001.100",502,59,TRUE);          // turn on fan
     }
 
 
@@ -55,8 +84,43 @@
             </nav>
             <img class="portrait" src="img/logo.jpg">
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
-            <input type="submit" name="read bits" value="read_bits">
-            <input type="submit" name="write bits" value="write_bits">
+
+            <div class="wrapper">
+                <div id="chart"></div>
+                <script>
+                    function getData() {
+                        return Math.random();
+                    }  
+                    Plotly.plot('chart',[{
+                        y:[getData()],
+                        type:'line'
+                    }]);
+                    
+                    var cnt = 0;
+                    setInterval(function(){
+                        Plotly.extendTraces('chart',{ y:[[getData()]]}, [0]);
+                        cnt++;
+                        if(cnt > 500) {
+                            Plotly.relayout('chart',{
+                                xaxis: {
+                                    range: [cnt-500,cnt]
+                                }
+                            });
+                        }
+                    },15);
+                </script>
+            </div>
+            
+            <!-- Read function -->
+            <input type="submit" name="read coils" value="read_coils">
+            <input type="submit" name="read holding registers" value="read_holding_registers">
+            <!-- Write to coils -->
+            <input type="submit" name="write single coils" value="write_single_coils">
+            <input type="submit" name="write multiple coils" value="write_multiple_coils">
+            <!-- Write register -->
+            <input type="submit" name="write single register" value="write_single_register">
+            <input type="submit" name="write multiple registers" value="write_multiple_registers">
+
             <input type="submit" name="alerte email" value="alerte_email">
             <input type="submit" name="noti email" value="noti_email">
         </div>  

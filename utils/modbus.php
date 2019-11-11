@@ -17,19 +17,55 @@ function init_modbus() {
    * return recData : data read from modbus
    */
 
-function read_bits($ip,$port,$debut,$nbits)
+/********************/
+/*  Read function   */
+/********************/
+function read_coils($ip,$port,$debut,$nbits)
 {
     init_modbus();
-
     $modbus = new ModbusMaster($ip,"TCP",$port);
-    $recData = $modbus->readCoils(1,$debut, $nbits);
+    // $recData = $modbus->readCoils(1,$debut, $nbits);
+    $recData = $modbus->fc1(1,$debut, $nbits);
     return $recData;
 }
 
-function write_bits($ip,$port,$adresse,$value) {
+function read_holding_registers($ip,$port,$debut,$nbits)
+{
     init_modbus();
     $modbus = new ModbusMaster($ip,"TCP",$port);
-    $modbus->writeMultipleCoils(0, $adresse, $value);
+    $recData = $modbus->fc3(1,$debut, $nbits);
+    return $recData;
+}
+
+/********************/
+/*  Write to coils  */
+/********************/
+function write_single_coils($ip,$port,$debut,$nbits)
+{
+    init_modbus();
+    $modbus = new ModbusMaster($ip,"TCP",$port);
+    $modbus->fc5(0, $adresse, $value, 1);
+}
+
+function write_multiple_coils($ip,$port,$adresse,$value) {
+    init_modbus();
+    $modbus = new ModbusMaster($ip,"TCP",$port);
+    $modbus->fc15(0, $adresse, $value);
+}
+
+/************************/
+/*  Write to register   */
+/************************/
+function write_single_register($ip,$port,$adresse,$value) {
+    init_modbus();
+    $modbus = new ModbusMaster($ip,"TCP",$port);
+    $modbus->fc6(0, $adresse, $value, 1);
+}
+
+function write_multiple_registers($ip,$port,$adresse,$value) {
+    init_modbus();
+    $modbus = new ModbusMaster($ip,"TCP",$port);
+    $modbus->fc16(0, $adresse, $value, 1);
 }
 
 /*
