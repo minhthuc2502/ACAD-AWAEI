@@ -16,12 +16,12 @@ if (isset($_POST["modbus_function"])) {
     $port = 502;
     $modbus = new ModbusMaster($ip,"TCP",$port);
     
-    $debut = 25;
-    $nbits = 50;
+    $debut = 49;
+    $nbits = 20;
     $data = "";
 
     $adresse = 59;      // ventilo
-    $value = 1;         // allumer ventilo
+    $value = array(1);         // allumer ventilo
     // echo strtolower($_POST["modbus_function"]);
     try {
         switch (strtolower($_POST["modbus_function"])) {
@@ -41,13 +41,13 @@ if (isset($_POST["modbus_function"])) {
                 $modbus->fc5(0, $adresse, $value, 1);
                 break;
             case "fc6":
-                $modbus->fc6(0, $adresse, $value, 1); 
+                $modbus->fc6(0, $adresse, $value, "INT"); 
                 break;
             case "fc15":
                 $modbus->fc15(0, $adresse, $value); 
                 break;
             case "fc16":
-                $modbus->fc16(0, $adresse, $value, 1); 
+                $modbus->fc16(0, $adresse, $value, "INT"); 
                 break;
             case "fc22":
                 echo "we do not support this function";
@@ -63,7 +63,11 @@ if (isset($_POST["modbus_function"])) {
     }
 
     if ($data) {
-        echo PhpType::bytes2string($data);
+        echo implode(" ",$data);
+        echo "Sonde1: $data[0] degree \n";
+        echo "Sonde2: $data[3] degree \n";
+        echo "Sonde3: $data[6] degree \n";
+        echo "Sonde4: $data[9] degree \n";
     }
 }
 
