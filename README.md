@@ -14,7 +14,7 @@ Notre site web s'appelle **The Chateau 1997**, il vous permet de surveiller la t
 ## Ajouter base de donnée
 - Lancer le navigateur et entrer `http://localhost:8088/phpmyadmin/`
 - Cliquer `New` et entrer l'onglet `SQL`
-- Ajouter le code ci-dessous pour ajouter le base de donnée de `login`:
+- Ajouter le code ci-dessous pour ajouter la base de donnée de `login`:
 
 ```bash
 CREATE DATABASE IF NOT EXISTS `authentification` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
@@ -39,7 +39,7 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 php -r "unlink('composer-setup.php');"
 ```
 
--Sur Windows, on télécharge `Composer-Setup.exe` sur ce lien `https://getcomposer.org/download/`
+- Sur Windows, on télécharge `Composer-Setup.exe` sur ce lien `https://getcomposer.org/download/`
 ## Initialization des dépendances
 
 - Ouvrir `terminal` in *TheChateau1997/* folder et taper
