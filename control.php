@@ -57,16 +57,7 @@
                 </script>
             </div>
         </div>
-        <!-- Footer -->
-        <footer id="footpage">
-            <ul>
-                <li><a href="mailto:thecastle1997.blois@gmail.com" target="_blank">Email</a></li>
-                <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>
-            </ul>
-            <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
-        </footer>
     </form>
-
     <ul>
         <li>FC1 - Read coils</li>
         <li>FC2 - Read input discretes</li>
@@ -90,6 +81,14 @@
         <input type="text" placeholder="Entrez l'adresse email" name="addr_email" />
         <input type="submit" value="Send email" name="email_function">
     </form>
+        <!-- Footer -->
+        <footer id="footpage">
+            <ul>
+                <li><a href="mailto:thecastle1997.blois@gmail.com" target="_blank">Email</a></li>
+                <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>
+            </ul>
+            <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
+        </footer>
 
 </body>
 

@@ -25,7 +25,7 @@ if (isset($_POST["modbus_function"])) {
     // echo strtolower($_POST["modbus_function"]);
     try {
         switch (strtolower($_POST["modbus_function"])) {
-            case "fc1":
+            case "fc1": 
                 $data = $modbus->fc1(1,$debut, $nbits);
                 break;
             case "fc2":
