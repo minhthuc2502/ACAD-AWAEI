@@ -9,63 +9,62 @@ function init_modbus() {
     require_once dirname(__FILE__) . '/../phpmodbus-master/Phpmodbus/ModbusMaster.php';
 }
 
- /**
-   * read_bits
-   *
-   * read bits for modbus
-   * 
-   * return recData : data read from modbus
-   */
-
-/********************/
-/*  Read function   */
-/********************/
-function read_coils($ip,$port,$debut,$nbits)
-{
+if (isset($_POST["modbus_function"])) {
     init_modbus();
-    $modbus = new ModbusMaster($ip,"TCP",$port);
-    // $recData = $modbus->readCoils(1,$debut, $nbits);
-    $recData = $modbus->fc1(1,$debut, $nbits);
-    return $recData;
-}
 
-function read_holding_registers($ip,$port,$debut,$nbits)
-{
-    init_modbus();
+    $ip = "192.168.001.100";
+    $port = 502;
     $modbus = new ModbusMaster($ip,"TCP",$port);
-    $recData = $modbus->fc3(1,$debut, $nbits);
-    return $recData;
-}
+    
+    $debut = 25;
+    $nbits = 50;
+    $data = "";
 
-/********************/
-/*  Write to coils  */
-/********************/
-function write_single_coils($ip,$port,$debut,$nbits)
-{
-    init_modbus();
-    $modbus = new ModbusMaster($ip,"TCP",$port);
-    $modbus->fc5(0, $adresse, $value, 1);
-}
+    $adresse = 59;      // ventilo
+    $value = 1;         // allumer ventilo
+    // echo strtolower($_POST["modbus_function"]);
+    try {
+        switch (strtolower($_POST["modbus_function"])) {
+            case "fc1":
+                $data = $modbus->fc1(1,$debut, $nbits);
+                break;
+            case "fc2":
+                $data = $modbus->fc2(1,$debut, $nbits);
+                break;
+            case "fc3":
+                $data = $modbus->fc3(1,$debut, $nbits);
+                break;
+            case "fc4":
+                $data = $modbus->fc4(1,$debut, $nbits);
+                break;
+            case "fc5":
+                $modbus->fc5(0, $adresse, $value, 1);
+                break;
+            case "fc6":
+                $modbus->fc6(0, $adresse, $value, 1); 
+                break;
+            case "fc15":
+                $modbus->fc15(0, $adresse, $value); 
+                break;
+            case "fc16":
+                $modbus->fc16(0, $adresse, $value, 1); 
+                break;
+            case "fc22":
+                echo "we do not support this function";
+                break;
+            case "fc23":
+                echo "we do not support this function";
+                break;
+            default:
+                echo "Please enter the right value, batard";
+        }
+    } catch (Exception $e) {
+        echo "Error : $e";
+    }
 
-function write_multiple_coils($ip,$port,$adresse,$value) {
-    init_modbus();
-    $modbus = new ModbusMaster($ip,"TCP",$port);
-    $modbus->fc15(0, $adresse, $value);
-}
-
-/************************/
-/*  Write to register   */
-/************************/
-function write_single_register($ip,$port,$adresse,$value) {
-    init_modbus();
-    $modbus = new ModbusMaster($ip,"TCP",$port);
-    $modbus->fc6(0, $adresse, $value, 1);
-}
-
-function write_multiple_registers($ip,$port,$adresse,$value) {
-    init_modbus();
-    $modbus = new ModbusMaster($ip,"TCP",$port);
-    $modbus->fc16(0, $adresse, $value, 1);
+    if ($data) {
+        echo PhpType::bytes2string($data);
+    }
 }
 
 /*

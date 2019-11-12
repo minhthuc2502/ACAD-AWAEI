@@ -114,4 +114,25 @@ function get_data_for_alerte_email() {
 function get_data_for_noti_email() {
   return array('07', '04', '97', '09', '10', '97');
 }
+
+
+if (isset($_POST["email_function"])) {
+  $type = $_POST["type"];
+  $to_email = $_POST["addr_email"];
+
+  if (!$to_email) {
+    $to_email = "laminhduc0704@gmail.com";
+  }
+
+  switch ($type) {
+    case "noti":
+      send_noti_email($to_email);
+      break;
+    case "alert":
+      send_alert_email($to_email);
+      break;
+    default:
+      echo "Choose something, idiot";
+  }
+}
 ?>

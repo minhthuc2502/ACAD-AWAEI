@@ -1,86 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="icon" href="img/icon.png">
-        <link rel="stylesheet" href="mainstyle.css">
-        <title>The Castle - About</title>
-        <script src="./node_modules/plotly.js-dist/plotly.js"></script>
-    </head>
-    <body>
-    <?php
-/********************/
-/*      MODBUS      */
-/********************/
 
-/*  Read function   */
-    if (isset($_POST["read_coils"])){
-        require_once dirname(__FILE__) . '/utils/modbus.php';
-        echo "in read colis function";
-        $data = read_coils("192.168.001.100",502,25,100);
-        echo PhpType::bytes2string($data);
-    }
+<head>
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="mainstyle.css">
+    <title>The Castle - About</title>
+    <script src="./node_modules/plotly.js-dist/plotly.js"></script>
+</head>
 
-    if (isset($_POST["read_holding_registers"])){
-        require_once dirname(__FILE__) . '/utils/modbus.php';
-        echo "in read holding registers function";
-        $data = read_holding_registers("192.168.001.100",502,25,100);
-        echo PhpType::bytes2string($data);
-    }
-/*  Write to coils  */
-    if (isset($_POST["write_single_coils"])){
-        require_once dirname(__FILE__) . '/utils/modbus.php';
-        echo "in write single colis function";
-        write_single_coils("192.168.001.100",502,59,TRUE);          // turn on fan
-    }
-
-    if (isset($_POST["write_multiple_coils"])){
-        require_once dirname(__FILE__) . '/utils/modbus.php';
-        echo "in write multiple colis function";
-        write_multiple_coils("192.168.001.100",502,59,TRUE);          // turn on fan
-    }
-/*  Write to register   */
-    if (isset($_POST["write_single_register"])){
-        require_once dirname(__FILE__) . '/utils/modbus.php';
-        echo "in write single register function";
-        write_single_register("192.168.001.100",502,59,TRUE);          // turn on fan
-    }
-
-    if (isset($_POST["write_multiple_registers"])){
-        require_once dirname(__FILE__) . '/utils/modbus.php';
-        echo "in write multiple register function";
-        write_multiple_registers("192.168.001.100",502,59,TRUE);          // turn on fan
-    }
-
-
-/********************/
-/*      EMAIL       */
-/********************/
-    if (isset($_POST["alerte_email"])) {
-        require_once dirname(__FILE__) . '/utils/email.php';
-        $to_email = 'laminhduc0704@gmail.com';
-        send_alert_email($to_email);
-    }
-
-    if (isset($_POST["noti_email"])) {
-        require_once dirname(__FILE__) . '/utils/email.php';
-        $to_email = 'laminhduc0704@gmail.com';
-        send_noti_email($to_email);
-    }
-    ?>
+<body>
     <form method="POST" action="control.php">
-
-    <!-- Header -->
+        <!-- Header -->
         <div>
             <header id="header" class="alt">
-                <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a><div>
+                <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a>
+                    <div>
             </header>
         </div>
         <div class="mainBody">
-            <nav id="nav-bar">     
-                
-                <a href = "vueEnsemble.php">Vue d'ensemble</a>
-                <a href = "control.php">Control</a>
-                <a href = "login.php">Se Connecter</a>
+            <nav id="nav-bar">
+
+                <a href="vueEnsemble.php">Vue d'ensemble</a>
+                <a href="control.php">Control</a>
+                <a href="login.php">Se Connecter</a>
             </nav>
             <img class="portrait" src="img/logo.jpg">
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
@@ -90,48 +32,65 @@
                 <script>
                     function getData() {
                         return Math.random();
-                    }  
-                    Plotly.plot('chart',[{
-                        y:[getData()],
-                        type:'line'
+                    }
+                    Plotly.plot('chart', [{
+                        y: [getData()],
+                        type: 'line'
                     }]);
-                    
+
                     var cnt = 0;
-                    setInterval(function(){
-                        Plotly.extendTraces('chart',{ y:[[getData()]]}, [0]);
+                    setInterval(function () {
+                        Plotly.extendTraces('chart', {
+                            y: [
+                                [getData()]
+                            ]
+                        }, [0]);
                         cnt++;
-                        if(cnt > 500) {
-                            Plotly.relayout('chart',{
+                        if (cnt > 500) {
+                            Plotly.relayout('chart', {
                                 xaxis: {
-                                    range: [cnt-500,cnt]
+                                    range: [cnt - 500, cnt]
                                 }
                             });
                         }
-                    },15);
+                    }, 15);
                 </script>
             </div>
-            
-            <!-- Read function -->
-            <input type="submit" name="read coils" value="read_coils">
-            <input type="submit" name="read holding registers" value="read_holding_registers">
-            <!-- Write to coils -->
-            <input type="submit" name="write single coils" value="write_single_coils">
-            <input type="submit" name="write multiple coils" value="write_multiple_coils">
-            <!-- Write register -->
-            <input type="submit" name="write single register" value="write_single_register">
-            <input type="submit" name="write multiple registers" value="write_multiple_registers">
-
-            <input type="submit" name="alerte email" value="alerte_email">
-            <input type="submit" name="noti email" value="noti_email">
-        </div>  
+        </div>
         <!-- Footer -->
         <footer id="footpage">
             <ul>
                 <li><a href="mailto:thecastle1997.blois@gmail.com" target="_blank">Email</a></li>
-                <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>                  
+                <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>
             </ul>
             <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
         </footer>
-    </body>
+    </form>
+
+    <ul>
+        <li>FC1 - Read coils</li>
+        <li>FC2 - Read input discretes</li>
+        <li>FC3 - Read holding registers</li>
+        <li>FC4 - Read holding input registers</li>
+        <li>FC5 - Write single coil</li>
+        <li>FC6 - Write single register</li>
+        <li>FC15 - Write multiple coils</li>
+        <li>FC16 - Write multiple registers</li>
+        <li>FC22 - Mask Write register</li>
+        <li>FC23 - Read/Write multiple registers</li>
+    </ul>
+    <form method="POST" action="utils/modbus.php">
+        <input type="text" placeholder="Entrez nom de la function" name="modbus_function" />
+        <button type="submit">Get function</button>
+    </form>
+
+    <form method="POST" action="utils/email.php">
+        <input type="radio" name="type" value="noti" checked="checked"> Notification<br>
+        <input type="radio" name="type" value="alert"> Alerte<br>
+        <input type="text" placeholder="Entrez l'adresse email" name="addr_email" />
+        <input type="submit" value="Send email" name="email_function">
+    </form>
+
+</body>
 
 </html>
