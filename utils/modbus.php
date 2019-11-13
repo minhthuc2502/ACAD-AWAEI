@@ -20,8 +20,9 @@ if (isset($_POST["modbus_function"])) {
     $nbits = 20;
     $data = "";
 
-    $adresse = 59;      // ventilo
-    $value = array(1);         // allumer ventilo
+    $adresse = 59;                  // ventilo
+    $value = array(1);              // allumer ventilo
+    $dataType = array('WORD');
     // echo strtolower($_POST["modbus_function"]);
     try {
         switch (strtolower($_POST["modbus_function"])) {
@@ -38,17 +39,16 @@ if (isset($_POST["modbus_function"])) {
                 $data = $modbus->fc4(1,$debut, $nbits);
                 break;
             case "fc5":
-                $modbus->writeSingleCoil(0,59,array(TRUE));
-                // $modbus->fc5(0, $adresse, $value, $dataType);
+                $modbus->fc5(0, $adresse, $value, $dataType);
                 break;
             case "fc6":
-                $modbus->fc6(0, $adresse, $value, "INT"); 
+                $modbus->fc6(0, $adresse, $value, $dataType); 
                 break;
             case "fc15":
                 $modbus->fc15(0, $adresse, $value); 
                 break;
             case "fc16":
-                $modbus->fc16(0, $adresse, $value, "INT"); 
+                $modbus->fc16(0, $adresse, $value, $dataType); 
                 break;
             case "fc22":
                 echo "we do not support this function";
