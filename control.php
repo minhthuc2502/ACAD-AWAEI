@@ -2,9 +2,12 @@
 <html>
 
 <head>
-    <link rel="icon" href="img/icon.png">
-    <link rel="stylesheet" href="mainstyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Castle - About</title>
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="nomalize.css" />
+    <link rel="stylesheet" href="style.css">
     <script src="./node_modules/plotly.js-dist/plotly.js"></script>
 </head>
 
@@ -13,18 +16,19 @@
         <!-- Header -->
         <div>
             <header id="header" class="alt">
-                <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a>
-                    <div>
+                <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a><div>
             </header>
         </div>
+        <!-- Accueil principal -->
         <div class="mainBody">
             <nav id="nav-bar">
-
-                <a href="vueEnsemble.php">Vue d'ensemble</a>
-                <a href="control.php">Control</a>
-                <a href="login.php">Se Connecter</a>
+                <ul class="main-nav">
+                    <li><a href="vueEnsemble.php">Vue d'ensemble</a></li>
+                    <li><a href="control.php">Control</a></li>
+                    <li><a href="login.php">Se Connecter</a></li>
+                </ul> 
             </nav>
-            <img class="portrait" src="img/logo.jpg">
+            <!-- <img class="portrait" src="img/logo.jpg"> -->
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
 
             <div class="wrapper">
