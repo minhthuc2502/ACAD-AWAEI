@@ -52,17 +52,6 @@ $_SESSION['login'] = false;
             <br>
             <br>
             <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
         </div> 
 
     

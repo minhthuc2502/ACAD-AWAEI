@@ -7,11 +7,69 @@ $_SESSION['login'] = false;
 <html>
     <head>
         <link rel="icon" href="img/icon.png">
+        <title>The Castle - Se Connecter</title>
         <link rel="stylesheet" href="nomalize.css" />
         <link rel="stylesheet" href="style.css" />
         <link href="https://fonts.googleapis.com/css?family=Glegoo&display=swap" rel="stylesheet">
-        <title>The Castle - Se Connecter</title>
         <meta charset="utf-8">
+        <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            font-family: 'Segoe UI', sans-serif;;
+            font-size: 1rem;
+            line-height: 1.6;
+            height: 100%;
+        }
+        .wrap {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fafafa;
+        }
+        .login-form{
+            width: 350px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            padding: 2rem;
+            background: #ffffff;
+        }
+        .form-input{
+            background: #fafafa;
+            border: 1px solid #eeeeee;
+            padding: 12px;
+            width: 100%;
+        }
+        .form-group{
+            margin-bottom: 1rem;
+        }
+        .form-button{
+            background: #69d2e7;
+            border: 1px solid #ddd;
+            color: #ffffff;
+            padding: 10px;
+            width: 100%;
+            text-transform: uppercase;
+        }
+        .form-button:hover{
+            background: #69c8e7;
+        }
+        .form-header{
+            text-align: center;
+            margin-bottom : 2rem;
+        }
+        .form-footer{
+            text-align: center;
+        }
+        </style>
     </head>
 
     <body>
@@ -23,8 +81,6 @@ $_SESSION['login'] = false;
         </div>
         <div class="main-content">
             <header>
-                <br>
-                <br>
                 <br>
                 <nav id="nav-bar">                  
                     <ul class="main-nav">
@@ -39,10 +95,34 @@ $_SESSION['login'] = false;
                         <?php if( $_SESSION['login'] == true): ?>
                         <li><a href = "deconnexion.php">déconnexion</a></li>
                         <?php endif; ?>
+                        <br>
+                        <br>
                     </ul> 
                 </nav>
             </header>
-            <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
+            <div class="wrap">
+                <form class="login-form" method="POST" action="login.php">
+                    <div class="form-header">
+                        <h3>Se connecter</h3>
+                        <p>Se connecter pour visualiser la température de la salle</p>
+                    </div>
+                    <!--Email Input-->
+                    <div class="form-group">
+                    <input type="text" name="nomUtilisateur" class="form-input" placeholder="identifiant">
+                    </div>
+                    <!--Password Input-->
+                    <div class="form-group">
+                        <input type="password" name="motCle" class="form-input" placeholder="mot de pass">
+                    </div>
+                    <!--Login Button-->
+                    <div class="form-group">
+                        <button class="form-button" type="submit" name="btn_submit">Se Connecter</button>
+                    </div>
+                    <div class="form-footer">
+                    Je n'ai pas de compte? <a href="register.php">S'inscrire</a>
+                    </div>
+                    </form>
+            </div><!--/.wrap-->
         </div> 
 
     <?php
@@ -77,30 +157,6 @@ $_SESSION['login'] = false;
             }
         }
     ?>
-        <form method="POST" action="login.php">
-        <div class="main-content">
-            <fieldset>
-                <legend>Se Connecter</legend>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Nom d'utilisateur</td>
-                            <td><input type="text" name="nomUtilisateur" size="30"></td> 
-                        </tr>
-                        <tr>
-                                <td>Mot clé</td>
-                                <td><input type="password" name="motCle" size="30"></td> 
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2"><input type="submit" name="btn_submit" value="Se Connecter"></td>
-                            <a href ="register.php">S'incrire</a>
-                        </tr>
-                    </tfoot>
-                </table>
-            </fieldset>
-        </div>
         <!-- Footer -->
         <footer id="footpage">
             <ul>
