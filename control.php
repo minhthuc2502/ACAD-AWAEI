@@ -31,6 +31,8 @@
                 <div id="chart"></div>
                 <script>
                     function getData() {
+                        
+                        // return result;
                         return Math.random();
                     }
                     Plotly.plot('chart', [{
@@ -89,7 +91,6 @@
             </ul>
             <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
         </footer>
-
 </body>
 
 </html>

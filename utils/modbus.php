@@ -11,16 +11,35 @@ function init_modbus() {
 
 if (isset($_POST["modbus_function"])) {
     init_modbus();
+    require_once dirname(__FILE__) . '/../phpmodbus-master/Phpmodbus/ModbusMaster.php';
 
     $ip = "192.168.001.100";
     $port = 502;
-    $modbus = new ModbusMaster($ip,"TCP",$port);
-    
-    $debut = 49;
+
+    $debut = 86;
     $nbits = 20;
     $data = "";
 
-    $adresse = 59;                  // ventilo
+    $modbus = new ModbusMaster($ip,"TCP",$port);
+    $data = $modbus->fc3(1,$debut, $nbits);
+
+    if ($data) {
+        echo implode(" ",$data);
+        // debut data at 49 
+        echo "Sonde1: $data[1] degree \n";
+        echo "Sonde2: $data[5] degree \n";
+        echo "Sonde3: $data[9] degree \n";
+        echo "Sonde4: $data[13] degree \n";
+
+        // debut data at 27
+        echo "Heure: $data[1]\n";
+        echo "Minute: $data[9]\n";
+        echo "Second: $data[13]\n";
+    }
+
+    $adresse = 87;                  // ventilo
+    // 59*2 = 118
+    // 87*2 = 174
     $value = array(1);              // allumer ventilo
     $dataType = array('WORD');
     // echo strtolower($_POST["modbus_function"]);
@@ -65,12 +84,20 @@ if (isset($_POST["modbus_function"])) {
 
     if ($data) {
         echo implode(" ",$data);
-        echo "Sonde1: $data[0] degree \n";
-        echo "Sonde2: $data[3] degree \n";
-        echo "Sonde3: $data[6] degree \n";
-        echo "Sonde4: $data[9] degree \n";
+        // debut data at 49 
+        echo "Sonde1: $data[1] degree \n";
+        echo "Sonde2: $data[5] degree \n";
+        echo "Sonde3: $data[9] degree \n";
+        echo "Sonde4: $data[13] degree \n";
+
+        // debut data at 27
+        echo "Heure: $data[1]\n";
+        echo "Minute: $data[9]\n";
+        echo "Second: $data[13]\n";
     }
 }
+// For write function
+// Resistant adr = 70; value = 0/1
 
 /*
 29 heure
@@ -83,6 +110,21 @@ if (isset($_POST["modbus_function"])) {
 55 test 3 - bas
 
 59/87 ventilo
+
+
 60 resistant 
 */
+
+function getTemp() {
+    init_modbus();
+    require_once dirname(__FILE__) . '/../phpmodbus-master/Phpmodbus/ModbusMaster.php';
+
+    $ip = "192.168.001.100";
+    $port = 502;
+
+    $debut = 49;
+    $nbits = 20;
+    $data = $modbus->fc3(1,$debut, $nbits);
+    return $data[5];
+}
 ?>
