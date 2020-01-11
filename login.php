@@ -2,6 +2,7 @@
 <!-- Open session to save information login -->
 <?php
 session_start();
+$_SESSION['login'] = false;
 ?>
 <html>
     <head>
@@ -22,10 +23,24 @@ session_start();
         </div>
         <div class="main-content">
             <header>
-                
-                <a href = "vueEnsemble.php">Vue d'ensemble</a>
-                <a href = "control.php">Control</a>
-                <a href = "login.php">Se Connecter</a>
+                <br>
+                <br>
+                <br>
+                <nav id="nav-bar">                  
+                    <ul class="main-nav">
+                        <li><a href = "index.php">Home</a></li>
+                        <li><a href = "vueEnsemble.php">Vue d'ensemble</a></li>
+                        <?php if( $_SESSION['login'] == true): ?>
+                        <li><a href="control.php">Control</a></li>
+                        <?php endif; ?>
+                        <?php if( $_SESSION['login'] == false): ?>
+                        <li><a href = "login.php">Se Connecter</a></li>
+                        <?php endif; ?>
+                        <?php if( $_SESSION['login'] == true): ?>
+                        <li><a href = "deconnexion.php">déconnexion</a></li>
+                        <?php endif; ?>
+                    </ul> 
+                </nav>
             </header>
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
         </div> 
@@ -62,7 +77,6 @@ session_start();
             }
         }
     ?>
-    <?php if($login == false): ?>
         <form method="POST" action="login.php">
         <div class="main-content">
             <fieldset>
@@ -87,10 +101,6 @@ session_start();
                 </table>
             </fieldset>
         </div>
-    <?php endif; ?>
-    <?php if($login == true): ?>
-        <p>Vous avez connecté.</p>
-    <?php endif; ?>
         <!-- Footer -->
         <footer id="footpage">
             <ul>

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<?php
+session_start();
+?>
     <html>
 
     <head>
@@ -23,9 +25,17 @@
         <div id="mainBody">
             <nav id="nav-bar">                  
                 <ul class="main-nav">
+                    <li><a href = "index.php">Home</a></li>
                     <li><a href="vueEnsemble.php">Vue d'ensemble</a></li>
+                    <?php if( $_SESSION['login'] == true): ?>
                     <li><a href="control.php">Control</a></li>
-                    <li><a href="login.php">Se Connecter</a></li>
+                    <?php endif; ?>
+                    <?php if( $_SESSION['login'] == false): ?>
+                    <li><a href = "login.php">Se Connecter</a></li>
+                    <?php endif; ?>
+                    <?php if( $_SESSION['login'] == true): ?>
+                    <li><a href = "deconnexion.php">déconnexion</a></li>
+                    <?php endif; ?>
                 </ul> 
             </nav>
             <div class="welcome-text">
