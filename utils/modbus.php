@@ -18,7 +18,7 @@ if (isset($_POST["modbus_function"])) {
 
     $debut = 86;
     $nbits = 20;
-    $data = "";
+    //$data = "";
 
     $modbus = new ModbusMaster($ip,"TCP",$port);
     $data = $modbus->fc3(1,$debut, $nbits);
@@ -67,7 +67,7 @@ if (isset($_POST["modbus_function"])) {
                 $modbus->fc15(0, $adresse, $value); 
                 break;
             case "fc16":
-                $modbus->fc16(0, $adresse, $value, $dataType); 
+                $modbus->fc16(0, $adresse, $value,$dataType); 
                 break;
             case "fc22":
                 echo "we do not support this function";
