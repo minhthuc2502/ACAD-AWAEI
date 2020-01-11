@@ -1,4 +1,4 @@
-s# Projet Architecture Web Automates Intranet Extranet
+# Projet Architecture Web Automates Intranet Extranet
 
 Ceci est un projet web pour les étudiants de 5ème année à l'INSA Centre Val de Loire.
 
@@ -12,6 +12,7 @@ Notre site web s'appelle **The Chateau 1997**, il vous permet de surveiller la t
 - Ouvrir votre navigateur et saisir `http://localhost:%PORT%/TheChateau1997/`
 
 ## Ajouter base de donnée
+
 - Lancer le navigateur et entrer `http://localhost:8088/phpmyadmin/`
 - Cliquer `New` et entrer l'onglet `SQL`
 - Ajouter le code ci-dessous pour ajouter la base de donnée de `login`:
@@ -29,7 +30,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 ```
+
+## Télécharger npm
+
+For Linux user
+
+```bash
+curl https://www.npmjs.com/install.sh | sudo sh
+```
+
 ## Télécharger Composer
+
 - Sur linux, on suive les lignes de commande suivants:
 
 ```bash
@@ -40,6 +51,7 @@ php -r "unlink('composer-setup.php');"
 ```
 
 - Sur Windows, on télécharge `Composer-Setup.exe` sur ce lien `https://getcomposer.org/download/`
+
 ## Initialization des dépendances
 
 - Ouvrir `terminal` in *TheChateau1997/* folder et taper
