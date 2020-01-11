@@ -18,7 +18,7 @@ if (isset($_POST["modbus_function"])) {
     
     $debut = 49;
     $nbits = 20;
-    $data = "";
+    //$data = "";
 
     $adresse = 59;      // ventilo
     $value = array(1);         // allumer ventilo
@@ -47,7 +47,7 @@ if (isset($_POST["modbus_function"])) {
                 $modbus->fc15(0, $adresse, $value); 
                 break;
             case "fc16":
-                $modbus->fc16(0, $adresse, $value, "INT"); 
+                $modbus->fc16(0, $adresse, $value,array("WORD")); 
                 break;
             case "fc22":
                 echo "we do not support this function";
@@ -64,10 +64,10 @@ if (isset($_POST["modbus_function"])) {
 
     if ($data) {
         echo implode(" ",$data);
-        echo "Sonde1: $data[0] degree \n";
-        echo "Sonde2: $data[3] degree \n";
-        echo "Sonde3: $data[6] degree \n";
-        echo "Sonde4: $data[9] degree \n";
+        echo "Sonde1: $data[1] degree \n";
+        echo "Sonde2: $data[5] degree \n";
+        echo "Sonde3: $data[9] degree \n";
+        echo "Sonde4: $data[13] degree \n";
     }
 }
 

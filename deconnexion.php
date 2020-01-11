@@ -9,7 +9,7 @@ session_start();
         <link rel="stylesheet" href="nomalize.css" />
         <link rel="stylesheet" href="style.css" />
         <link href="https://fonts.googleapis.com/css?family=Glegoo&display=swap" rel="stylesheet">
-        <title>The Castle - Se Connecter</title>
+        <title>The Castle - Deconnexion</title>
         <meta charset="utf-8">
     </head>
 
@@ -21,12 +21,18 @@ session_start();
             </header>
         </div>
         <div class="main-content">
-            <header>
-                
-                <a href = "vueEnsemble.php">Vue d'ensemble</a>
-                <a href = "control.php">Control</a>
-                <a href = "login.php">Se Connecter</a>
-            </header>
+            <p>Vous avez déjà connecté</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
             <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
         </div> 
 
