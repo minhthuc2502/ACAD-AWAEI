@@ -12,10 +12,10 @@ session_start();
     <link rel="stylesheet" href="nomalize.css" />
     <link rel="stylesheet" href="style.css">
     <script src="./node_modules/plotly.js-dist/plotly.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <form method="POST" action="control.php">
         <!-- Header -->
         <div>
             <header id="header" class="alt">
@@ -40,36 +40,63 @@ session_start();
                 </ul> 
             </nav>
             <!-- <img class="portrait" src="img/logo.jpg"> -->
-            <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
-
+            <!-- <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p> -->
             <div class="wrapper">
                 <div id="chart"></div>
-
-                <div class="wrapper">
-                    <div id="chart"></div>
-                </div>
+                <script>
+                    function getData() {
+                        return Math.random();
+                    }
+                    Plotly.plot('chart', [{
+                        y: [getData()],
+                        type: 'line'
+                    }]);
+                    var cnt = 0;
+                    setInterval(function () {
+                        Plotly.extendTraces('chart', {
+                            y: [
+                                [getData()]
+                            ]
+                        }, [0]);
+                        cnt++;
+                        if (cnt > 100) {
+                            Plotly.relayout('chart', {
+                                xaxis: {
+                                    range: [cnt - 100, cnt]
+                                }
+                            });
+                        }
+                    }, 200);
+                </script>
             </div>
             <div class="flexBoxTemp">
                     <div class="childBox">
                         <h3>Salon</h3>
-                        <div class="BoxContent">35°C</div>
+                        <div class="BoxContent" id='test'>
+                            <span id='livingroom'></span>
+                        </div>
                     </div>
                     <div class="childBox">
                         <h3>Chambre</h3>
-                        <div class="BoxContent">X</div>
+                        <div class="BoxContent">
+                            <span id='bedroom'></span>
+                        </div>
                     </div>
                     <div class="childBox">
                         <h3>Salle de bains</h3>
-                        <div class="BoxContent">X</div>
+                        <div class="BoxContent">
+                            <span id='bathroom'></span>
+                        </div>
                     </div>
                     <div class="childBox">
                         <h3>Salle à manger</h3>
-                        <div class="BoxContent">X</div>
+                        <div class="BoxContent">
+                            <span id='kitchen'></span>
+                        </div>
                     </div>
             </div>
         </div>
-    </form>
-        <ul>
+        <!-- <ul>
             <li>FC1 - Read coils</li>
             <li>FC2 - Read input discretes</li>
             <li>FC3 - Read holding registers</li>
@@ -84,7 +111,7 @@ session_start();
         <form method="POST" action="utils/modbus.php">
             <input type="text" placeholder="Entrez nom de la function" name="modbus_function" />
             <button type="submit">Get function</button>
-        </form>
+        </form> -->
 
         <form method="POST" action="utils/email.php">
             <input type="radio" name="type" value="noti" checked="checked"> Notification<br>
@@ -103,3 +130,57 @@ session_start();
     </body>
 
 </html>
+
+<script>
+    setInterval(getTemp, 500);
+    setInterval(getTime, 1000);
+    setInterval(updateNameDisplay, 1000);
+
+    var result_temp = 0;
+    var result_time = 0;
+
+    function getTemp() {
+        jQuery.ajax({
+            type: "POST",
+            url: 'utils/modbus.php',
+            dataType: 'json',
+            data: {functionname: 'getTemp', arguments: 0},
+
+            success: function (obj, textstatus) {
+                        if( !('error' in obj) ) {
+                            result_temp = obj.result;
+                            console.log(result_temp);
+                        }
+                        else {
+                            console.log(obj.error);
+                        }
+                    }
+        });
+    }
+
+    function getTime() {
+        jQuery.ajax({
+            type: "POST",
+            url: 'utils/modbus.php',
+            dataType: 'json',
+            data: {functionname: 'getTime', arguments: 0},
+
+            success: function (obj, textstatus) {
+                        if( !('error' in obj) ) {
+                            result_time = obj.result;
+                            console.log(result_time);
+                        }
+                        else {
+                            console.log(obj.error);
+                        }
+                    }
+        });
+    }
+
+    function updateNameDisplay() {
+        document.getElementById('livingroom').innerHTML = result_temp[1];
+        document.getElementById('bedroom').innerHTML = result_temp[5];
+        document.getElementById('bathroom').innerHTML = result_temp[9];
+        document.getElementById('kitchen').innerHTML = result_temp[13];
+    }
+</script>

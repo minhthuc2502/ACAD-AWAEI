@@ -1,5 +1,31 @@
 <?php
+    header('Content-Type: application/json');
 
+    $aResult = array();
+
+    if( !isset($_POST['functionname']) ) { $aResult['error'] = 'No function name!'; }
+
+    if( !isset($_POST['arguments']) ) { $aResult['error'] = 'No function arguments!'; }
+
+    if( !isset($aResult['error']) ) {
+
+        switch($_POST['functionname']) {
+            case 'getTemp':
+                $aResult['result'] = getTemp();
+               break;
+
+            case 'getTime':
+                $aResult['result'] = getTime();
+               break;
+
+            default:
+               $aResult['error'] = 'Not found function '.$_POST['functionname'].'!';
+               break;
+        }
+
+    }
+
+    echo json_encode($aResult);
  /**
    * init_modbus
    *
@@ -124,7 +150,27 @@ function getTemp() {
 
     $debut = 49;
     $nbits = 20;
-    $data = $modbus->fc3(1,$debut, $nbits);
-    return $data[5];
+    // $data = $modbus->fc3(1,$debut, $nbits);
+    $data[1] = 2;
+    $data[5] = 6;
+    $data[9] = 10;
+    $data[13] = 14;
+    return $data;
+}
+
+function getTime() {
+    init_modbus();
+    require_once dirname(__FILE__) . '/../phpmodbus-master/Phpmodbus/ModbusMaster.php';
+
+    $ip = "192.168.001.100";
+    $port = 502;
+
+    $debut = 27;
+    $nbits = 20;
+    // $data = $modbus->fc3(1,$debut, $nbits);
+    $data[1] = 1;
+    $data[9] = 9;
+    $data[13] = 13;
+    return $data;
 }
 ?>
