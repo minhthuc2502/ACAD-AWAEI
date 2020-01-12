@@ -44,50 +44,31 @@ session_start();
 
             <div class="wrapper">
                 <div id="chart"></div>
-                <script>
-                    function getData() {
-                        
-                        // return result;
-                        return Math.random();
-                    }
-                    Plotly.plot('chart', [{
-                        y: [getData()],
-                        type: 'line'
-                    }]);
 
                 <div class="wrapper">
                     <div id="chart"></div>
-                    <script>
-                        function getData() {
-                            
-                            // return result;
-                            return Math.random();
-                        }
-                        Plotly.plot('chart', [{
-                            y: [getData()],
-                            type: 'line'
-                        }]);
-
-                        var cnt = 0;
-                        setInterval(function () {
-                            Plotly.extendTraces('chart', {
-                                y: [
-                                    [getData()]
-                                ]
-                            }, [0]);
-                            cnt++;
-                            if (cnt > 500) {
-                                Plotly.relayout('chart', {
-                                    xaxis: {
-                                        range: [cnt - 500, cnt]
-                                    }
-                                });
-                            }
-                        }, 15);
-                    </script>
                 </div>
             </div>
-        </form>
+            <div class="flexBoxTemp">
+                    <div class="childBox">
+                        <h3>Salon</h3>
+                        <div class="BoxContent">35°C</div>
+                    </div>
+                    <div class="childBox">
+                        <h3>Chambre</h3>
+                        <div class="BoxContent">X</div>
+                    </div>
+                    <div class="childBox">
+                        <h3>Salle de bains</h3>
+                        <div class="BoxContent">X</div>
+                    </div>
+                    <div class="childBox">
+                        <h3>Salle à manger</h3>
+                        <div class="BoxContent">X</div>
+                    </div>
+            </div>
+        </div>
+    </form>
         <ul>
             <li>FC1 - Read coils</li>
             <li>FC2 - Read input discretes</li>
