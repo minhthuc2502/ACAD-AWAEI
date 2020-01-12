@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <?php
 session_start();
+if(!isset($login)){
+    $login = false;
+}
+
 ?>
     <html>
 

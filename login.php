@@ -120,43 +120,41 @@ $_SESSION['login'] = false;
                     <div class="form-footer">
                     Je n'ai pas de compte? <a href="register.php">S'inscrire</a>
                     </div>
+                    <?php
+                    require_once("connection.php");
+                    // si button submit est appuye
+                    if (isset($_POST["btn_submit"])){
+                        $nomutilisateur = $_POST["nomUtilisateur"];
+                        $motcle= $_POST["motCle"];
+                        $nomutilisateur = strip_tags($nomutilisateur);
+                        $nomutilisateur = addslashes($nomutilisateur);
+                        $motcle = strip_tags($motcle);
+                        $motcle = addslashes($motcle);
+                        if($nomutilisateur =="" || $motcle==""){
+                            echo "Nom d'utilisateur ou  Mot clé n'est pas possible d'être vide!";
+                        }
+                        else{
+                            $sql = "select * from users where nomutilisateur = '$nomutilisateur' and motcle = '$motcle' ";
+                            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                            $query = mysqli_query($conn, $sql);
+                            $num_rows = mysqli_num_rows($query);
+                            if($num_rows == 0){
+                                echo "<div><p style='color:red;'>Nom d'utilisateur ou le mot clé n'est pas invalid!'</p></div>";;
+                            } 
+                            else{
+                                // Enregister le nom d'utilisateur dans la session
+                                $login = true;
+                                $_SESSION["nomutilisateur"] = $nomutilisateur;
+                                $_SESSION['login'] = true;
+                                header('location: control.php');
+                                exit();
+                            }
+                        }
+                    }
+                    ?>
                     </form>
             </div><!--/.wrap-->
         </div> 
-
-    <?php
-        require_once("connection.php");
-        // si button submit est appuye
-        if (isset($_POST["btn_submit"])){
-            $nomutilisateur = $_POST["nomUtilisateur"];
-            $motcle= $_POST["motCle"];
-            $nomutilisateur = strip_tags($nomutilisateur);
-            $nomutilisateur = addslashes($nomutilisateur);
-            $motcle = strip_tags($motcle);
-            $motcle = addslashes($motcle);
-            if($nomutilisateur =="" || $motcle==""){
-                echo "Nom d'utilisateur ou  Mot clé n'est pas possible d'être vide!";
-            }
-            else{
-                $sql = "select * from users where nomutilisateur = '$nomutilisateur' and motcle = '$motcle' ";
-                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-                $query = mysqli_query($conn, $sql);
-                $num_rows = mysqli_num_rows($query);
-                if($num_rows == 0){
-                    echo "Nom d'utilisateur ou le mot clé n'est pas invalid!";
-                } 
-                else{
-                    // Enregister le nom d'utilisateur dans la session
-                    $login = true;
-                    $_SESSION["nomutilisateur"] = $nomutilisateur;
-                    $_SESSION['login'] = true;
-                    header('location: control.php');
-                    exit();
-                }
-            }
-        }
-    ?>
-
     </body>
             <!-- Footer -->
             <!-- <div> -->
