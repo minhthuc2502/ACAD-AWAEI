@@ -95,7 +95,7 @@ session_start();
             <div class="wrap">
                 <form class="login-form" action = "register.php" method="post">
                     <div class="form-header">
-                        <h3>S'inscrire'</h3>
+                        <h3>S'inscrire</h3>
                         <p>Remplir tous les informations nécessaires</p>
                     </div>
                     <!--user's name Input-->
@@ -119,46 +119,55 @@ session_start();
                         <input type="text" name="email" class="form-input" placeholder="email">
                     </div>
                     <!--Login Button-->
-                        <div class="form-group">
-                            <button class="form-button" type="submit" name="btn_submit">S'inscrire'</button>
-                        </div>
+                    <div class="form-group">
+                        <button class="form-button" type="submit" name="btn_submit">S'inscrire</button>
+                    </div>
+                    <?php
+                    require_once("connection.php");
+                    if(isset($_POST["btn_submit"])){
+                        $nomutilisateur = $_POST["nomutilisateur"];
+                        $motcle = $_POST["motcle"];
+                        $motcleConfirm = $_POST["motcleConfirm"];
+                        $nom = $_POST["nom"];
+                        $email = $_POST["email"];
+                    if($nomutilisateur =="" || $motcle =="" || $motcleConfirm=="" || $nom == "" || $email==""){
+                        echo "<div><p style='color:red;'>S'il vous plaît entrer les informations complètes</p></div>";
+                    }else{
+                        $sql = "select * from users where nomutilisateur='$nomutilisateur'";
+                        $sqlemail = "select * from users where email='$email'";
+                        $kt= mysqli_query($conn, $sql);
+                        $ktemail= mysqli_query($conn, $sqlemail);
+                        if(mysqli_num_rows($kt) > 0){
+                            echo "<div><p style='color:red;'>Compte a été créé</p></div>";
+                        }
+                        else if(mysqli_num_rows($ktemail) > 0){
+                            echo "<div><p style='color:red;'>Ce email a déjà utilisé</p></div>";
+                        }
+                        else if($motcle != $motcleConfirm){
+                            echo "<div><p style='color:red;'>Mot de pass n'est pas confirmé</p></div>";
+                        }else{
+                            $sql = "INSERT INTO users(
+                                nomutilisateur,
+                                motcle,
+                                motcleConfirm,
+                                nom,
+                                email
+                            ) VALUES (
+                                '$nomutilisateur',
+                                '$motcle',
+                                '$motcleConfirm',
+                                '$nom',
+                                '$email'
+                                )";
+                            mysqli_query($conn,$sql);
+                            echo "Félicitations pour votre inscription réussie";
+                            }
+                        }    
+                    }
+                    ?>
+                </form>
             </div>
         </div>
-
-        
-        <?php
-        require_once("connection.php");
-        if(isset($_POST["btn_submit"])){
-            $nomutilisateur = $_POST["nomutilisateur"];
-            $motcle = $_POST["motcle"];
-            $nom = $_POST["nom"];
-            $email = $_POST["email"];
-        if($nomutilisateur =="" || $motcle =="" || $nom == "" || $email==""){
-            echo "S'il vous plaît entrer les informations complètes";
-        }else{
-            $sql = "select * from users where nomutilisateur='$nomutilisateur'";
-            $kt= mysqli_query($conn, $sql);
-            if(mysqli_num_rows($kt) > 0){
-                echo "Compte a été créé";
-            }else{
-                $sql = "INSERT INTO users(
-                    nomutilisateur,
-                    motcle,
-                    nom,
-                    email
-                ) VALUES (
-                    '$nomutilisateur',
-                    '$motcle',
-                    '$nom',
-                    '$email'
-                    )";
-                mysqli_query($conn,$sql);
-                echo "Félicitations pour votre inscription réussie";
-                }
-            }    
-        }
-
-        ?>
     </body>
     <div>
     <footer id="footpage">

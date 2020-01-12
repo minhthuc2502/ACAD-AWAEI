@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if(!isset($login)){
-    $login = false;
+if(!isset($_SESSION['login'])){
+    $_SESSION['login'] = false;
 }
 
 ?>

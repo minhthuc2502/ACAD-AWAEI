@@ -131,7 +131,7 @@ $_SESSION['login'] = false;
                         $motcle = strip_tags($motcle);
                         $motcle = addslashes($motcle);
                         if($nomutilisateur =="" || $motcle==""){
-                            echo "Nom d'utilisateur ou  Mot clé n'est pas possible d'être vide!";
+                            echo "<div><p style='color:red;'>Nom d'utilisateur ou  Mot clé n'est pas possible d'être vide!</p></div>";
                         }
                         else{
                             $sql = "select * from users where nomutilisateur = '$nomutilisateur' and motcle = '$motcle' ";
@@ -139,7 +139,7 @@ $_SESSION['login'] = false;
                             $query = mysqli_query($conn, $sql);
                             $num_rows = mysqli_num_rows($query);
                             if($num_rows == 0){
-                                echo "<div><p style='color:red;'>Nom d'utilisateur ou le mot clé n'est pas invalid!'</p></div>";;
+                                echo "<div><p style='color:red;'>Nom d'utilisateur ou le mot clé n'est pas invalid!</p></div>";;
                             } 
                             else{
                                 // Enregister le nom d'utilisateur dans la session
