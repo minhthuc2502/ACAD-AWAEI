@@ -141,6 +141,7 @@ if (isset($_POST["modbus_function"])) {
 60 resistant 
 */
 
+
 function getTemp() {
     init_modbus();
     require_once dirname(__FILE__) . '/../phpmodbus-master/Phpmodbus/ModbusMaster.php';
@@ -150,11 +151,11 @@ function getTemp() {
 
     $debut = 49;
     $nbits = 20;
-    // $data = $modbus->fc3(1,$debut, $nbits);
-    $data[1] = 2;
-    $data[5] = 6;
-    $data[9] = 10;
-    $data[13] = 14;
+    $data = $modbus->fc3(1,$debut, $nbits);
+    // $data[1] = rand()%10 + 2;
+    // $data[5] = rand()%10 + 6;
+    // $data[9] = rand()%10 + 10;
+    // $data[13] = rand()%10 + 14;
     return $data;
 }
 
@@ -167,10 +168,10 @@ function getTime() {
 
     $debut = 27;
     $nbits = 20;
-    // $data = $modbus->fc3(1,$debut, $nbits);
-    $data[1] = 1;
-    $data[9] = 9;
-    $data[13] = 13;
+    $data = $modbus->fc3(1,$debut, $nbits);
+    // $data[1] = 1;
+    // $data[9] = 9;
+    // $data[13] = 13;
     return $data;
 }
 ?>

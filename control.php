@@ -43,31 +43,7 @@ session_start();
             <!-- <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p> -->
             <div class="wrapper">
                 <div id="chart"></div>
-                <script>
-                    function getData() {
-                        return Math.random();
-                    }
-                    Plotly.plot('chart', [{
-                        y: [getData()],
-                        type: 'line'
-                    }]);
-                    var cnt = 0;
-                    setInterval(function () {
-                        Plotly.extendTraces('chart', {
-                            y: [
-                                [getData()]
-                            ]
-                        }, [0]);
-                        cnt++;
-                        if (cnt > 100) {
-                            Plotly.relayout('chart', {
-                                xaxis: {
-                                    range: [cnt - 100, cnt]
-                                }
-                            });
-                        }
-                    }, 200);
-                </script>
+
             </div>
             <div class="flexBoxTemp">
                     <div class="childBox">
@@ -132,7 +108,7 @@ session_start();
 </html>
 
 <script>
-    setInterval(getTemp, 500);
+    setInterval(getTemp, 200);
     setInterval(getTime, 1000);
     setInterval(updateNameDisplay, 1000);
 
@@ -183,4 +159,65 @@ session_start();
         document.getElementById('bathroom').innerHTML = result_temp[9];
         document.getElementById('kitchen').innerHTML = result_temp[13];
     }
+
+
+    var varTest = 0;
+    function getData() {
+        varTest = varTest +1;
+        return varTest;
+        // return Math.random();
+    }
+    Plotly.plot('chart', [
+        {
+            y: [result_temp[1]],
+            type: 'line',
+            name: 'Salon'
+        },
+        {
+            y: [result_temp[5]],
+            type: 'line',
+            name: 'Chambre'
+        },
+        {
+            y: [result_temp[9]],
+            type: 'line',
+            name: 'Salle de bains'
+        },
+        {
+            y: [result_temp[13]],
+            type: 'line',
+            name: 'Salle à manger'
+        }
+    ]);
+    var cnt = 0;
+    setInterval(function () {
+        Plotly.extendTraces('chart', {
+            y: [
+                [result_temp[1]]
+            ]
+        }, [0]);
+        Plotly.extendTraces('chart', {
+            y: [
+                [result_temp[5]]
+            ]
+        }, [1]);
+        Plotly.extendTraces('chart', {
+            y: [
+                [result_temp[9]]
+            ]
+        }, [2]);
+        Plotly.extendTraces('chart', {
+            y: [
+                [result_temp[13]]
+            ]
+        }, [3]);
+        cnt++;
+        if (cnt > 200) {
+            Plotly.relayout('chart', {
+                xaxis: {
+                    range: [cnt - 200, cnt]
+                }
+            });
+        }
+    }, 50);
 </script>
