@@ -2,7 +2,7 @@
 /* header for page + logo*/
 /* ----------------------------------------------------- */
 #header {
-    background: rgba(0, 0, 0, 0.975);
+    background: rgba(0, 0, 0);
     color: #a6a6a6;
     cursor: default;
     height: 3.25em;
@@ -96,13 +96,12 @@
 
 #nav-bar {
     margin-top: -40px;
-    margin-left: -80px;
+    margin-left: -40px;
     width:100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 0 50px;
 }
 /* Main nav */ 
 nav {
@@ -115,8 +114,8 @@ nav {
     flex-direction: row;
     justify-content: space-around;
     margin-top: 63px;
-    margin-right: 5px;
 }
+
 
 .main-nav li {
     display: inline-block;
@@ -326,6 +325,21 @@ footer span {
 }
 
 /* ----------------------------------------------------- */
+/* page login */
+/* ----------------------------------------------------- */
+.main-content {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.493),rgba(0, 0, 0, 0.493)), url(img/background3.png);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+    justify-content: space-around;
+    font: 15px/1.5 'PT Sans', serif;
+    width: 100%;
+    margin-top: 4.3em;
+}
+
+/* ----------------------------------------------------- */
 /* page Vue d'ensemble */
 /* ----------------------------------------------------- */
 .mainTitle {
@@ -381,4 +395,12 @@ footer span {
     content: "";
     display: inline-table;
     clear: both;
+}
+
+/*deconnexion*/
+.deconnexion {
+    margin-top: 70px;
+    text-align: center;
+    font-size: 4em;
+    color: #ffffff;
 }

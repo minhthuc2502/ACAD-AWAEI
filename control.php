@@ -4,7 +4,6 @@ session_start();
 ?>
 <html>
 
-<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +26,17 @@ session_start();
         <div class="mainBody">
             <nav id="nav-bar">
                 <ul class="main-nav">
+                    <li><a href = "index.php">Home</a></li>
                     <li><a href="vueEnsemble.php">Vue d'ensemble</a></li>
+                    <?php if( $_SESSION['login'] == true): ?>
                     <li><a href="control.php">Control</a></li>
-                    <li><a href="login.php">Se Connecter</a></li>
+                    <?php endif; ?>
+                    <?php if( $_SESSION['login'] == false): ?>
+                    <li><a href = "login.php">Se Connecter</a></li>
+                    <?php endif; ?>
+                    <?php if( $_SESSION['login'] == true): ?>
+                    <li><a href = "deconnexion.php">deconnecter</a></li>
+                    <?php endif; ?>
                 </ul> 
             </nav>
             <!-- <img class="portrait" src="img/logo.jpg"> -->
@@ -47,47 +54,6 @@ session_start();
                         y: [getData()],
                         type: 'line'
                     }]);
-=======
-    <head>
-        <link rel="icon" href="img/icon.png">
-        <title>The Castle - About</title>
-        <script src="./node_modules/plotly.js-dist/plotly.js"></script>
-        <link rel="stylesheet" href="nomalize.css" />
-        <link rel="stylesheet" href="style.css" />
-        <link href="https://fonts.googleapis.com/css?family=Glegoo&display=swap" rel="stylesheet">
-        <meta charset="utf-8">
-    </head>
-
-    <body>
-        <form method="POST" action="control.php">
-            <!-- Header -->
-            <div>
-                <header id="header" class="alt">
-                    <div class="logo"><a href="index.php">THE CASTLE <span>1997</span></a>
-                        <div>
-                </header>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div class="mainBody">
-                <nav id="nav-bar">
-                    <ul class="main-nav">
-                        <li><a href="vueEnsemble.php">Vue d'ensemble</a></li>
-                        <?php if( $_SESSION['login'] == true): ?>
-                        <li><a href="control.php">Control</a></li>
-                        <?php endif; ?>
-                        <?php if( $_SESSION['login'] == false): ?>
-                        <li><a href = "login.php">Se Connecter</a></li>
-                        <?php endif; ?>
-                        <?php if( $_SESSION['login'] == true): ?>
-                        <li><a href = "deconnexion.php">déconnexion</a></li>
-                        <?php endif; ?>
-                    </ul> 
-                </nav>
-                <img class="portrait" src="img/logo.jpg">
-                <p>This site was created by Minh Duc LA, Minh Thuc PHAM. It uses data from an automate using MOD BUS</p>
->>>>>>> 02a584fa39907a49a8ac17accf326c348d087973
 
                 <div class="wrapper">
                     <div id="chart"></div>

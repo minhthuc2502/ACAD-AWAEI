@@ -22,9 +22,6 @@ $_SESSION['login'] = false;
             </header>
         </div>
         <div class="main-content">
-            <br>
-            <br>
-            <br>
             <header>
             <nav id="nav-bar">                  
                 <ul class="main-nav">
@@ -39,19 +36,7 @@ $_SESSION['login'] = false;
                 </ul> 
             </nav>
             </header>
-            <p>Vous avez déjà déconnecté</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <p class="deconnexion">Vous avez déjà déconnecté</p>
         </div> 
 
     

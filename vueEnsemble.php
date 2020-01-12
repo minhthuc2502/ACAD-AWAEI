@@ -32,7 +32,7 @@ session_start();
                     <li><a href = "login.php">Se Connecter</a></li>
                     <?php endif; ?>
                     <?php if( $_SESSION['login'] == true): ?>
-                    <li><a href = "deconnexion.php">déconnexion</a></li>
+                    <li><a href = "deconnexion.php">deconnecter</a></li>
                     <?php endif; ?>
                 </ul> 
             </nav>

@@ -13,27 +13,21 @@ $_SESSION['login'] = false;
         <link href="https://fonts.googleapis.com/css?family=Glegoo&display=swap" rel="stylesheet">
         <meta charset="utf-8">
         <style>
-        *{
-            margin:0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        
         html{
-            height: 100%;
-        }
-        body{
-            font-family: 'Segoe UI', sans-serif;;
-            font-size: 1rem;
-            line-height: 1.6;
             height: 100%;
         }
         .wrap {
             width: 100%;
-            height: 100%;
+            margin-top: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
             background: #fafafa;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.493),rgba(0, 0, 0, 0.493)), url(img/background3.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         .login-form{
             width: 350px;
@@ -66,6 +60,12 @@ $_SESSION['login'] = false;
             text-align: center;
             margin-bottom : 2rem;
         }
+
+        .form-header h3 {
+            font-size: 2em;
+            margin-top: 0;
+        }
+
         .form-footer{
             text-align: center;
         }
@@ -81,7 +81,6 @@ $_SESSION['login'] = false;
         </div>
         <div class="main-content">
             <header>
-                <br>
                 <nav id="nav-bar">                  
                     <ul class="main-nav">
                         <li><a href = "index.php">Home</a></li>
@@ -93,7 +92,7 @@ $_SESSION['login'] = false;
                         <li><a href = "login.php">Se Connecter</a></li>
                         <?php endif; ?>
                         <?php if( $_SESSION['login'] == true): ?>
-                        <li><a href = "deconnexion.php">déconnexion</a></li>
+                        <li><a href = "deconnexion.php">deconnecter</a></li>
                         <?php endif; ?>
                         <br>
                         <br>
@@ -157,15 +156,18 @@ $_SESSION['login'] = false;
             }
         }
     ?>
-        <!-- Footer -->
-        <footer id="footpage">
-            <ul>
-                <li><a href="mailto:thecastle1997.blois@gmail.com" target="_blank">Email</a></li>
-                <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>                  
-            </ul>
-            <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
-        </footer>
+
     </body>
+            <!-- Footer -->
+            <!-- <div> -->
+            <footer id="footpage">
+                <ul>
+                    <li><a href="mailto:thecastle1997.blois@gmail.com" target="_blank">Email</a></li>
+                    <li><a href="http://www.linkedin.com/in/m-pham">Linkedin</a></li>                  
+                </ul>
+                <span> Copyright 2019 by Minh Thuc PHAM - Minh Duc LA - Viet Dao NGUYEN</span>
+            </footer>
+        <!-- </div> -->
 </html>
 
 
