@@ -36,11 +36,6 @@ function init_modbus() {
 }
 
 if (isset($_POST["modbus_function"])) {
-    init_modbus();
-    require_once dirname(__FILE__) . '/../phpmodbus-master/Phpmodbus/ModbusMaster.php';
-
-    $ip = "192.168.001.100";
-    $port = 502;
 
     $debut = 86;
     $nbits = 20;
@@ -144,34 +139,29 @@ if (isset($_POST["modbus_function"])) {
 
 function getTemp() {
     init_modbus();
-    require_once dirname(__FILE__) . '/../phpmodbus-master/Phpmodbus/ModbusMaster.php';
 
-    $ip = "192.168.001.100";
+    $ip = "192.168.52.232";
     $port = 502;
 
-    $debut = 49;
+    $debut = 16;
     $nbits = 20;
+
+    $modbus = new ModbusMaster($ip,"TCP",$port);
     $data = $modbus->fc3(1,$debut, $nbits);
-    // $data[1] = rand()%10 + 2;
-    // $data[5] = rand()%10 + 6;
-    // $data[9] = rand()%10 + 10;
-    // $data[13] = rand()%10 + 14;
     return $data;
 }
 
 function getTime() {
     init_modbus();
-    require_once dirname(__FILE__) . '/../phpmodbus-master/Phpmodbus/ModbusMaster.php';
 
-    $ip = "192.168.001.100";
+    $ip = "192.168.52.232";
     $port = 502;
 
-    $debut = 27;
+    $debut = 29;
     $nbits = 20;
+
+    $modbus = new ModbusMaster($ip,"TCP",$port);
     $data = $modbus->fc3(1,$debut, $nbits);
-    // $data[1] = 1;
-    // $data[9] = 9;
-    // $data[13] = 13;
     return $data;
 }
 ?>

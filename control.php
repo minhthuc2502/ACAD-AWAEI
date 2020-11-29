@@ -155,9 +155,9 @@ session_start();
 
     function updateNameDisplay() {
         document.getElementById('livingroom').innerHTML = result_temp[1];
-        document.getElementById('bedroom').innerHTML = result_temp[5];
-        document.getElementById('bathroom').innerHTML = result_temp[9];
-        document.getElementById('kitchen').innerHTML = result_temp[13];
+        document.getElementById('bedroom').innerHTML = result_temp[3];
+        document.getElementById('bathroom').innerHTML = result_temp[5];
+        document.getElementById('kitchen').innerHTML = result_temp[7];
     }
 
 
@@ -174,17 +174,17 @@ session_start();
             name: 'Salon'
         },
         {
-            y: [result_temp[5]],
+            y: [result_temp[3]],
             type: 'line',
             name: 'Chambre'
         },
         {
-            y: [result_temp[9]],
+            y: [result_temp[5]],
             type: 'line',
             name: 'Salle de bains'
         },
         {
-            y: [result_temp[13]],
+            y: [result_temp[7]],
             type: 'line',
             name: 'Salle à manger'
         }
@@ -198,17 +198,17 @@ session_start();
         }, [0]);
         Plotly.extendTraces('chart', {
             y: [
-                [result_temp[5]]
+                [result_temp[3]]
             ]
         }, [1]);
         Plotly.extendTraces('chart', {
             y: [
-                [result_temp[9]]
+                [result_temp[5]]
             ]
         }, [2]);
         Plotly.extendTraces('chart', {
             y: [
-                [result_temp[13]]
+                [result_temp[7]]
             ]
         }, [3]);
         cnt++;
