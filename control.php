@@ -154,10 +154,10 @@ session_start();
     }
 
     function updateNameDisplay() {
-        document.getElementById('livingroom').innerHTML = result_temp[1];
-        document.getElementById('bedroom').innerHTML = result_temp[3];
-        document.getElementById('bathroom').innerHTML = result_temp[5];
-        document.getElementById('kitchen').innerHTML = result_temp[7];
+        document.getElementById('livingroom').innerHTML = result_temp[1]/10;
+        document.getElementById('bedroom').innerHTML = result_temp[3]/10;
+        document.getElementById('bathroom').innerHTML = result_temp[5]/10;
+        document.getElementById('kitchen').innerHTML = result_temp[7]/10;
     }
 
 
@@ -169,22 +169,22 @@ session_start();
     }
     Plotly.plot('chart', [
         {
-            y: [result_temp[1]],
+            y: [result_temp[1]/10],
             type: 'line',
             name: 'Salon'
         },
         {
-            y: [result_temp[3]],
+            y: [result_temp[3]/10],
             type: 'line',
             name: 'Chambre'
         },
         {
-            y: [result_temp[5]],
+            y: [result_temp[5]/10],
             type: 'line',
             name: 'Salle de bains'
         },
         {
-            y: [result_temp[7]],
+            y: [result_temp[7]/10],
             type: 'line',
             name: 'Salle à manger'
         }
@@ -193,22 +193,22 @@ session_start();
     setInterval(function () {
         Plotly.extendTraces('chart', {
             y: [
-                [result_temp[1]]
+                [result_temp[1]/10]
             ]
         }, [0]);
         Plotly.extendTraces('chart', {
             y: [
-                [result_temp[3]]
+                [result_temp[3]/10]
             ]
         }, [1]);
         Plotly.extendTraces('chart', {
             y: [
-                [result_temp[5]]
+                [result_temp[5]/10]
             ]
         }, [2]);
         Plotly.extendTraces('chart', {
             y: [
-                [result_temp[7]]
+                [result_temp[7]/10]
             ]
         }, [3]);
         cnt++;
